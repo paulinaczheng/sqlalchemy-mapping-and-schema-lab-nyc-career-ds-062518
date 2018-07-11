@@ -43,6 +43,24 @@ Prior to running the tests, run the `python schema.py` in your terminal after yo
 
 If the tests don't pass, for now simply delete the `musicians.db` file then try again!
 
+### Part 2: Create the schema
+
+#### Construct the musicians table
+
+Finally, with all this setup out of the way, we are ready to create a SQL table!  We mentioned above that our classes need to have the functionality of the declarative base class.  How can we achieve this?  We can use object inheritance!  By passing our `Musician` class the `Base` instance we declared above as an argument, our Musician class will inherit all of the functionality of what commonly is referred to as the parent or super class.  
+
+```python
+class Musician(Base):
+```
+
+The table's name will be `'musicians'`, and it should contain the following five columns having these respective datatypes:
+
+> 1. id - integer
+2. fullname - string
+3. instrument - string
+4. dob - datetime
+5. alive - boolean
+
 ## Summary
 
 In this lab we learned that declaring a mapping means creating a SQLAlchemy object that takes our python class objects and maps them to our SQL tables and saves them in our database. We also learned the basic setup for importing SQLAlchemy, creating a connection to our database, creating a mapping with a SQL table, and finally how to execute creating the database.
